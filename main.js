@@ -9,17 +9,23 @@ function getData(){
         if(this.status===200){
 
             let data = JSON.parse(this.responseText);
-            for (let index = 0; index < 90; index++) {
-                div.innerHTML+=`
-                <div class="col-4 text-white bg-dark mx-auto border border-white" >
-
-  <div class="card-body">
-    <p>ID: ${data[con].id}</p>
-    <p>TITLE: ${data[con].title}</p>
-    <p>COMPLETED: ${data[con].completed}</p>
-  </div>
-</div>
-                
+            for (let index = 0; index < 20; index++) {
+                div.innerHTML+=`<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>ID: ${data[con].id}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>TITLE: ${data[con].title}</th>
+    </tr>
+    <tr>
+      <th>COMPLETED: ${data[con].completed}</th>
+    </tr>
+  </tbody>
+</table>
+ 
                 
                 
                 `
