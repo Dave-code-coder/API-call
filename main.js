@@ -10,21 +10,22 @@ function getData(){
 
             let data = JSON.parse(this.responseText);
             for (let index = 0; index < 20; index++) {
-                div.innerHTML+=`<table class="table table-dark">
-  <thead>
-    <tr>
-      <th>ID: ${data[con].id}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>TITLE: ${data[con].title}</th>
-    </tr>
-    <tr>
-      <th>COMPLETED: ${data[con].completed}</th>
-    </tr>
-  </tbody>
-</table>
+                div.innerHTML+=`<table class="table table-dark table ">
+                <thead>
+                  <tr>
+                    <th>ID: ${data[con].id}</th>
+                    <th>TITLE: ${data[con].title}</th>
+                    <th>COMPLETED: ${data[con].completed}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+
  
                 
                 
