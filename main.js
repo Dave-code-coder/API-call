@@ -1,5 +1,5 @@
 var btn= document.getElementById("btn").addEventListener("click", getData);
-var div=document.getElementById("postsDiv");
+var div=document.getElementById("cardDiv");
 var con=0;
 
 function getData(){
@@ -9,26 +9,14 @@ function getData(){
         if(this.status===200){
 
             let data = JSON.parse(this.responseText);
-            for (let index = 0; index < 20; index++) {
-                div.innerHTML+=`<table class="table table-dark table ">
-                <thead>
-                  <tr>
-                    <th>ID: ${data[con].id}</th>
-                    <th>TITLE: ${data[con].title}</th>
-                    <th>COMPLETED: ${data[con].completed}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  </tr>
-                </tbody>
-              </table>
-
-
-
-
- 
-                
-                
+            for (let index = 0; index < 1; index++) {
+                div.innerHTML+=`
+                <tr>
+                <td> ${data[con].userId}</td>
+                <td> ${data[con].id}</td>
+                <td> ${data[con].title}</td>
+                <td> ${data[con].completed}</td>
+              </tr>
                 `
                 con=con+1;
             }
