@@ -1,26 +1,33 @@
-var btn= document.getElementById("btn").addEventListener("click", getData);
+var btn= document.getElementById("btn").addEventListener("click", getPost);
 var div=document.getElementById("cardDiv");
 var con=0;
 
-function getData(){
-    let xhr= new XMLHttpRequest();
-    xhr.open('GET','https://jsonplaceholder.typicode.com/todos',true);
-    xhr.onload=function(){
-        if(this.status===200){
+function getPost(){
+   
+   fetch('https://jsonplaceholder.typicode.com/todos')
+    .then((res)=>{
+        return res.json();
+        
+    })
+   
 
-            let data = JSON.parse(this.responseText);
-            for (let index = 0; index < 1; index++) {
-                div.innerHTML+=`
+    
+    .then((post)=>(
+              (post.map(post =>  (div.innerHTML+=`
                 <tr>
-                <td> ${data[con].userId}</td>
-                <td> ${data[con].id}</td>
-                <td> ${data[con].title}</td>
-                <td> ${data[con].completed}</td>
+                <td> ${post.userId}</td>
+                <td> ${post.id}</td>
+                <td> ${post.title}</td>
+                <td> ${post.completed}</td>
               </tr>
-                `
-                con=con+1;
-            }
+              `
+              
+              )))
+    ))
+    .catch(error => {
+      alert(error);
+    })
+    
+  
+           
         }
-    }
-    xhr.send();
-}
